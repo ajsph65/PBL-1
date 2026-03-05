@@ -9,6 +9,8 @@
 
 Provide a concise (2-3 sentence) description of what your application does and the specific problem it solves. Why did you build this?
 
+This is a Tic-Tac-Toe game with three modes: Player vs Player, Player vs AI, and AI vs AI. The AI uses the Minimax algorithm to choose the best moves. The game was made to show how an AI can make smart decisions in a fun and easy-to-use interface with PyQt5.
+
 
 ## **🚀 Quick Start (Architect Level: < 60s Setup)**
 
