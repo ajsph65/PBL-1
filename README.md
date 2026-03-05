@@ -59,6 +59,10 @@ List the main third-party libraries used and _why_ they were chosen:
 
 - library\_name: \[Reason for use]
 
+- PyQt5: For building the GUI interface.
+
+math: For Minimax algorithm calculations and infinite value representation.
+
 
 ## **🔮 Future Roadmap (v2.0)**
 
@@ -66,4 +70,11 @@ What features would you add if you had more time or a larger budget?
 
 _Generated as part of the \[Course Name] Production Deliverables._
 
+Add alpha-beta pruning for faster AI decisions.
+
+Visualize Minimax evaluation scores per move for educational purposes.
+
+Implement online multiplayer mode or a web version.
+
+Add custom themes, sounds, and animations to improve UX.
 __
