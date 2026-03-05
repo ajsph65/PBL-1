@@ -52,6 +52,10 @@ How can a user verify the code works?
 
 - Describe the "Happy Path" inputs for the demo.
 
+You can test the game by playing it in any mode: Player vs Player, Player vs AI, or AI vs AI.
+The “happy path” is: choose a mode, play a few moves, and check if the game works correctly.
+The game should correctly show the winner, a draw.
+
 
 ## **📦 Dependencies**
 
@@ -59,8 +63,7 @@ List the main third-party libraries used and _why_ they were chosen:
 
 - library\_name: \[Reason for use]
 
-- PyQt5: For building the GUI interface.
-
+PyQt5: For building the GUI interface.
 math: For Minimax algorithm calculations and infinite value representation.
 
 
@@ -70,11 +73,6 @@ What features would you add if you had more time or a larger budget?
 
 _Generated as part of the \[Course Name] Production Deliverables._
 
-Add alpha-beta pruning for faster AI decisions.
-
-Visualize Minimax evaluation scores per move for educational purposes.
-
-Implement online multiplayer mode or a web version.
-
-Add custom themes, sounds, and animations to improve UX.
-__
+Make the AI faster using better algorithms (like alpha-beta pruning).
+Show the AI’s score or best move on the board.
+Improve the game look with colors, sounds, or animations.
