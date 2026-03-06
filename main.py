@@ -120,7 +120,7 @@ def best_move(board, depth, current_player=IA):
 class TicTacToe(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Morpion IA - Stylish GUI")
+        self.setWindowTitle("Tic Tac Toe Game")
         self.setFixedSize(350,450)
 
         self.board = [EMPTY]*9
@@ -292,3 +292,4 @@ app = QApplication(sys.argv)
 game = TicTacToe()
 game.show()
 sys.exit(app.exec_())
+
