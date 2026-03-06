@@ -147,9 +147,11 @@ class TicTacToe(QWidget):
         self.mode_box.currentTextChanged.connect(self.change_mode)
         layout.addWidget(self.mode_box)
 
+#label showing ai depth
         self.slider_label = QLabel(f"AI Depth: {self.depth}")
         layout.addWidget(self.slider_label)
 
+#slider to change ai difficulty
         self.depth_slider = QSlider(Qt.Horizontal)
         self.depth_slider.setMinimum(1)
         self.depth_slider.setMaximum(9)
@@ -157,34 +159,43 @@ class TicTacToe(QWidget):
         self.depth_slider.valueChanged.connect(self.change_depth)
         layout.addWidget(self.depth_slider)
 
+#grid for the tic tac toe board
         grid = QGridLayout()
         for i in range(9):
             btn = QPushButton("")
             btn.setFixedSize(90,90)
             btn.setStyleSheet("font-size:28px")
+
+            #when clicked, play in this cell
             btn.clicked.connect(lambda _, x=i: self.play(x))
             self.buttons.append(btn)
             grid.addWidget(btn, i//3, i%3)
         layout.addLayout(grid)
 
+# reset button
         reset_btn = QPushButton("Reset")
         reset_btn.clicked.connect(self.reset)
         layout.addWidget(reset_btn)
 
         self.setLayout(layout)
 
+# change game mode
     def change_mode(self, text):
         self.mode = text
         self.reset()
 
+
+#change ai difficulty
     def change_depth(self, val):
         self.depth = val
         self.slider_label.setText(f"AI Depth: {val}")
 
     def play(self, pos):
+        # ignore click if cell alreagy used
         if self.board[pos] != EMPTY: 
             return
 
+#player vs player
         if self.mode == "Player vs Player":
             self.board[pos] = self.current_player
             self.buttons[pos].setText(self.current_player)
@@ -196,7 +207,10 @@ class TicTacToe(QWidget):
                 return
             self.current_player = IA if self.current_player==PLAYER else PLAYER
 
+#player vs ia
+
         elif self.mode == "Player vs AI":
+            #player move
             self.board[pos] = PLAYER
             self.buttons[pos].setText(PLAYER)
             if win(self.board, PLAYER):
@@ -205,6 +219,8 @@ class TicTacToe(QWidget):
             if draw(self.board):
                 self.status.setText("Draw !")
                 return
+            
+            # ai move
             ai = best_move(self.board, self.depth, IA)
             if ai!=-1:
                 self.board[ai] = IA
@@ -225,11 +241,13 @@ class TicTacToe(QWidget):
         # Prepare the grid and the timer
         if self.timer: 
             self.timer.stop()
+            #reset board
         self.board = [EMPTY]*9
         for b in self.buttons: 
             b.setText("")
         self.status.setText("AI vs AI running...")
         self.current_player = PLAYER
+        # timer makes the ai play every 300ms
         self.timer = QTimer()
         self.timer.timeout.connect(self.ai_turn)
         self.timer.start(300)
