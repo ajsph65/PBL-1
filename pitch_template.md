@@ -1,47 +1,100 @@
-# 📢 Team Presentation Template: The 5-Minute Pitch
+# **📦 \[Project Name]**
 
-# This template is designed for a **group of 2-4 students**. Distribute the speaking roles so everyone is involved.
+**MVP Status:** \[e.g., v1.0-Production]
+ 
+**Group Members:**Attal Joan , Joseph Aubane, Keddar Delhia , Boussoura Anfel 
 
-## Slide 1: The Hook (30 Seconds)
 
-# - **Speaker 1:** Project Name & Team Introduction.
+## **🎯 Project Overview**
 
-- **The Problem:** Define the "pain point" your app solves in one sentence.
+Provide a concise (2-3 sentence) description of what your application does and the specific problem it solves. Why did you build this?
 
-## Slide 2: The Solution & Roles (45 Seconds)
 
-# - **Speaker 2:** "We built \[Project Name] to solve \[Problem]."
+## **🚀 Quick Start (Architect Level: < 60s Setup)**
 
-- **Team Roles:** Briefly state who was responsible for what (e.g., "Student A: Backend Logic, Student B: UI & Integration").
+Instructions on how to get this project running on a fresh machine.
 
-## Slide 3: The Live Demo (2 Minutes) 💻
+1. **Clone the repo:**\
+   git clone \https://github.com/anfelboussoura-cloud/pbl2\
+   cd \pbl2
 
-# - **Speaker 3 (or Lead Dev):** Conduct the walkthrough.
+2. **Setup Virtual Environment:**\
+   python -m venv .venv\
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-- **The Happy Path:** Show the core feature working.
+3. **Install Dependencies:**\
+   pip install -r requirements.txt
 
-- **Resilience:** Show a "User Error" and how your code catches it.
+4. **Run Application:**\
+    To check it works we have to run the app, load lowbid_manche_demo.csv with the Load CSV button, the bids should show up in the table with unique prices highlighted in green. Then we hit Find Winner and it gives you the winning player. For successor/predecessor we just type a price that exists in the tree and click.
 
-- _Note: The person not speaking should be the one operating the keyboard._
 
-## Slide 4: Engineering & Collaboration (1 Minute)
+## **🛠️ Technical Architecture**
 
-# - **Speaker 4 (or Shared):** \* **The Stack:** Libraries used.
+Explain how your code is organized. An "Architect-level" README should describe the separation of concerns.
 
-  - **The Workflow:** "We used Git to manage our modules and merged our features into a final build."
+- **main.py**: Entry point of the application.
+  
+This is the file that launches the program.
+It simply creates the application window, starts the graphical interface (Tkinter) and connects everything together.
+Think of it as the on/off button of the project.
 
-  - **Challenge:** One specific technical hurdle the group solved together.
+- **logic/**: Contains core algorithms and data processing.
+  
+It contains all the important calculations and rules of the auction.
+It includes :
+1)    Binary Search Tree (BST)
+This structure stores all bids in a smart way so the program can sort prices automatically, quickly find the lowest unique bid and find the next higher or lower price (successor / predecessor).
+This makes the app fast even with many bids.
+2)    Auction calculations
+This part handles the cost of each bid, the total revenue earned by the seller and the winner detection. 
+3)    Strategies and simulations
+The app can simulate hundreds of auction rounds using different player behaviors :
+-     Random bids 
+-     Low bids 
+-     Mid-range bids 
+The simulation calculates the win rate of each strategy, the average cost per bid and the average seller revenue.
+This allows us to compare strategies and see which one performs best.
 
-## Slide 5: The Future & Handover (45 Seconds)
+- **ui/**: Handles user interactions (CLI/GUI).
+  
+This part is everything the user sees and interacts with.
+Built with Tkinter, it provides : adding bids manually, loading bids from a CSV file, viewing the bid tree in real time, finding the winner of the auction, running large simulations, displaying results in tables.
+The interface only displays information and collects user input. All calculations are done in the logic part.
 
-# - **Speaker 1:** What would "Version 2.0" look like?
 
-- **Call to Action:** "We are ready for the Technical Defense."
+- **utils/**: Helper functions and shared constants.
 
-## 💡 Team Pitching Tips:
+It contains small reusable elements such as : default parameters (base cost, alpha), shared helper functions, strategy list. This keeps the main code cleaner and avoids repetition.
 
-# 1. **The "Hand-off":** Practice saying, "Now, \[Name] will show you the demo." It makes the group look professional.
 
-2. **Be the Backup:** If the person demoing gets stuck, another teammate should be ready to jump in and explain the logic while the issue is fixed.
+## **🧪 Testing & Validation**
 
-3. **Stand Together:** Even when you aren't speaking, stay engaged with the presentation.
+How can a user verify the code works?
+
+- List any test scripts included (e.g., pytest tests/).
+
+- Describe the "Happy Path" inputs for the demo.
+
+To check it works we have to run the app, load a csv with the Load CSV button, the bids should show up in the table with unique prices highlighted in green. Then we hit Find Winner and it gives you the winning player. For successor/predecessor we just type a price that exists in the tree and click.
+
+We kept everything in one file since the project isn't that big. The code is split into 4 main parts :
+-Node / BST : the heart of the project, it's the binary search tree we built from scratch to store and sort the bids
+-bid_cost / vendor_revenue / run_simulation : all the math and game logic, calculates costs and runs the simulations
+-Strategies : the 3 bot behaviors (random, low, mid) that we use in the simulation tab
+-LowBidApp : the whole interface, buttons, tables, the two tabs, everything the user sees and clicks
+
+
+## **📦 Dependencies**
+
+List the main third-party libraries used and _why_ they were chosen:
+
+tkinter : for the interface
+csv : to load the data files
+random : to generate the bots' bids
+
+
+## **🔮 Future Roadmap (v2.0)**
+
+What features would you add if you had more time or a larger budget?
+ If we had more time we would have loved to actually draw the Binary search tree as a real tree with nodes and branches instead of just a table, since that's kind of the whole point of the project. We also thought about adding charts to see how the strategies compare over time but we ran out of time.
