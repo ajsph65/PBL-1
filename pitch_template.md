@@ -2,7 +2,7 @@
 
 **MVP Status:** \[e.g., v1.0-Production]
  
-**Group Members:**Attal Joan , Joseph Aubane, Keddar Delhia , Boussoura Anfel 
+Group Members: Attal Joan , Joseph Aubane, Keddar Delhia , Boussoura Anfel 
 
 
 ## **🎯 Project Overview**
