@@ -57,8 +57,11 @@ This part handles the cost of each bid, the total revenue earned by the seller a
 3)    Strategies and simulations
 The app can simulate hundreds of auction rounds using different player behaviors :
 -     Random bids 
+
 -     Low bids 
+
 -     Mid-range bids 
+
 The simulation calculates the win rate of each strategy, the average cost per bid and the average seller revenue.
 This allows us to compare strategies and see which one performs best.
 
