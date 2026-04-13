@@ -43,11 +43,17 @@ Think of it as the on/off button of the project.
   
 It contains all the important calculations and rules of the auction.
 It includes :
+
+
 1)    Binary Search Tree (BST)
 This structure stores all bids in a smart way so the program can sort prices automatically, quickly find the lowest unique bid and find the next higher or lower price (successor / predecessor).
 This makes the app fast even with many bids.
+
+
 2)    Auction calculations
 This part handles the cost of each bid, the total revenue earned by the seller and the winner detection. 
+
+
 3)    Strategies and simulations
 The app can simulate hundreds of auction rounds using different player behaviors :
 -     Random bids 
@@ -55,6 +61,8 @@ The app can simulate hundreds of auction rounds using different player behaviors
 -     Mid-range bids 
 The simulation calculates the win rate of each strategy, the average cost per bid and the average seller revenue.
 This allows us to compare strategies and see which one performs best.
+
+
 
 - **ui/**: Handles user interactions (CLI/GUI).
   
@@ -79,10 +87,15 @@ How can a user verify the code works?
 To check it works we have to run the app, load a csv with the Load CSV button, the bids should show up in the table with unique prices highlighted in green. Then we hit Find Winner and it gives you the winning player. For successor/predecessor we just type a price that exists in the tree and click.
 
 We kept everything in one file since the project isn't that big. The code is split into 4 main parts :
+
 -Node / BST : the heart of the project, it's the binary search tree we built from scratch to store and sort the bids
+
 -bid_cost / vendor_revenue / run_simulation : all the math and game logic, calculates costs and runs the simulations
+
 -Strategies : the 3 bot behaviors (random, low, mid) that we use in the simulation tab
+
 -LowBidApp : the whole interface, buttons, tables, the two tabs, everything the user sees and clicks
+
 
 
 ## **📦 Dependencies**
